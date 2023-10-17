@@ -1,0 +1,7 @@
+version: '3.0'
+
+services:
+  web:
+    # the following lines allow for attaching to the debugger
+    stdin_open: true
+    tty: true
