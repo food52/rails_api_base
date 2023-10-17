@@ -27,6 +27,7 @@ This template comes with:
 - API documentation following https://www.openapis.org/
 - RSpec API Doc Generator
 - Docker support
+- VSCode extension suggestions (see <https://code.visualstudio.com/docs/languages/ruby>)
 
 ## How to use
 
