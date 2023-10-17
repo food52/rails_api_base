@@ -74,7 +74,6 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - [Annotate](https://github.com/ctran/annotate_models) for doc the schema in the classes
 - [Better Errors](https://github.com/charliesome/better_errors) for a better error page
 - [Brakeman](https://github.com/presidentbeef/brakeman) for static analysis security
-- [Byebug](https://github.com/deivid-rodriguez/byebug) for debugging
 - [DelayedJob](https://github.com/collectiveidea/delayed_job) for background processing
 - [Devise](https://github.com/plataformatec/devise) for basic auth
 - [Devise Token Auth](https://github.com/lynndylanhurley/devise_token_auth) for api auth
@@ -92,16 +91,17 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - [Pagy](https://github.com/ddnexus/pagy) for pagination
 - [Parallel Tests](https://github.com/grosser/parallel_tests) for split CI in several cores
 - [Prosopite](https://github.com/charkost/prosopite) to detect N+1 queries
-- [Pry](https://github.com/pry/pry) for enhancing the ruby shell
+- [Pry-Byebug](https://github.com/deivid-rodriguez/pry-byebug) for debugging
+- [Pry-Rails](https://github.com/pry/pry-rails) for enhancing the ruby shell
 - [Puma](https://github.com/puma/puma) for the server
 - [Pundit](https://github.com/varvet/pundit) for authorization management
 - [Rack CORS](https://github.com/cyu/rack-cors) for handling CORS
 - [Rails Best Practices](https://github.com/flyerhzm/rails_best_practices) for rails linting
-- [Reek](https://github.com/troessner/reek) for ruby linting
+- [Reek](https://github.com/troessner/reek) for ruby code smell linting
 - [RSpec](https://github.com/rspec/rspec) for testing
 - [RSpec OpenAPI](https://github.com/exoego/rspec-openapi) for generating API documentation
 - [Rswag](https://github.com/rswag/rswag) for expose API documentation
-- [Rubocop](https://github.com/bbatsov/rubocop/) for ruby linting
+- [Rubocop](https://github.com/bbatsov/rubocop/) for ruby style linting
 - [Sendgrid](https://github.com/stephenb/sendgrid) for sending mails
 - [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) adds other testing matchers
 - [Simplecov](https://github.com/colszowka/simplecov) for code coverage
@@ -128,7 +128,7 @@ See [api_documentation](./docs/api_documentation.md) docs for more info.
 With `bundle exec rails code:analysis` you can run the code analysis tool, you can omit rules with:
 
 - [Rubocop](https://github.com/bbatsov/rubocop/blob/master/config/default.yml) Edit `.rubocop.yml`
-- [Reek](https://github.com/troessner/reek#configuration-file) Edit `config.reek`
+- [Reek](https://github.com/troessner/reek#configuration-file) Edit `.reek.yml`
 - [Rails Best Practices](https://github.com/flyerhzm/rails_best_practices#custom-configuration) Edit `config/rails_best_practices.yml`
 - [Brakeman](https://github.com/presidentbeef/brakeman) Run `brakeman -I` to generate `config/brakeman.ignore`
 
