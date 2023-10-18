@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative 'helpers'
+
+if running_with_docker?
+  puts "Stopping Docker containers...\n"
+  exec 'docker-compose down'
+end

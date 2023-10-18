@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require_relative 'helpers'
+
+if running_with_docker?
+  puts "Docker containers already running...\n"
+  exit(true)
+end
+
+command = if startup_with_docker?
+  puts "Starting up docker dev environment...\n"
+  'docker-compose up --build --detach'
+else
+  raise "oops"
+  'bin/rails restart'
+end
+
+exec(command)
