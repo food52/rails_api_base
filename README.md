@@ -66,6 +66,10 @@ This template provides a handful of scripts to make your dev experience better!
   - `bin/dev`
 - bin/debug to access `pry` in docker (only works if `web` service is not already running)
   - `bin/debug`
+- bin/start & bin/stop to start and stop the containers and application
+  - `bin/start`
+  - `bin/stop`
+-
 
 You don't have to use these but they are designed to run the same when running with docker or not.
 To illustrate, `bin/rails console` will run the console in the docker container when running with docker and locally when not.
