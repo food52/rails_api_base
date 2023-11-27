@@ -17,7 +17,7 @@ return unless Rails.env.development?
 #
 # Users
 #
-
+# rubocop:disable all
 begin
   User.destroy_all
 
@@ -37,3 +37,4 @@ rescue => e
   debugger
   puts e
 end
+# rubocop:enable all
