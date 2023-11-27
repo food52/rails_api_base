@@ -139,6 +139,7 @@ jobs:
 
       # SimpleCov+
       - uses: joshmfrankel/simplecov-check-action@main
+        if: ${{ github.event_name == 'pull_request' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
   merge_results:
