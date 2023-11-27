@@ -90,7 +90,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Setup Code Climate test-reporter
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
@@ -117,10 +117,10 @@ jobs:
         with:
           path: "./app/ ./spec/"
       - name: Report to CodeClimate
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         run: ./cc-test-reporter format-coverage --output "coverage/coverage.${{ matrix.ci_node_index }}.json"
       - name: Upload partial coverage
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         uses: actions/upload-artifact@v2
         with:
           name: coverage
@@ -165,18 +165,18 @@ jobs:
             echo "OPENAPI=true" >> $GITHUB_ENV
           fi
       - name: Setup Code Climate test-reporter
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
       - name: Download coverage reports
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         uses: actions/download-artifact@v2
         with:
           name: coverage
           path: coverage/coverage.*.json
       - name: Report coverage
-        if: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{ env.CC_TEST_REPORTER_ID }}
         run: |
           ./cc-test-reporter sum-coverage coverage/**/*.json
           ./cc-test-reporter upload-coverage
