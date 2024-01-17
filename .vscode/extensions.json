@@ -1,6 +1,6 @@
 {
   "recommendations": [
     "shopify.ruby-extensions-pack",
-    "fnando.linter"
+    "timonwong.shellcheck"
   ]
 }
