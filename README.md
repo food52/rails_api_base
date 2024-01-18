@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/rootstrap/rails_api_base/badges/gpa.svg)](https://codeclimate.com/github/rootstrap/rails_api_base)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/63de7f82c79f5fe82f46/test_coverage)](https://codeclimate.com/github/rootstrap/rails_api_base/test_coverage)
 
-Rails Api Base is a boilerplate project for JSON RESTful APIs. It follows the community best practices in terms of standards, security and maintainability, integrating a variety of testing and code quality tools. It's based on Rails 7.0 and Ruby 3.2.
+Rails API Base is a boilerplate project for JSON RESTful APIs. It follows the community best practices in terms of standards, security and maintainability, integrating a variety of testing and code quality tools. It's based on Rails 7.0 and Ruby 3.2.
 
 Finally, it contains a plug an play Administration console (thanks to [ActiveAdmin](https://github.com/activeadmin/activeadmin)).
 
@@ -20,12 +20,12 @@ This template comes with:
   - Sign out
   - Reset password
   - Get and update user profile
-- Administration panel for users
+- Administration panel
 - Feature flags support with a UI for management.
-- RSpec tests
 - Code quality tools
-- API documentation following https://www.openapis.org/
+- RSpec tests
 - RSpec API Doc Generator
+- API documentation following [OpenAPI](https://www.openapis.org/)
 - Docker support
 - VSCode extension suggestions (see <https://code.visualstudio.com/docs/languages/ruby>)
 
@@ -40,7 +40,7 @@ This template comes with:
 1. Run `yarn install` and `yarn build --watch`. This bundles the JS assets in the administration site using [esbuild](https://github.com/evanw/esbuild).
 1. You can now try your REST services!
 
-## How to use with docker
+## How to use with Docker
 
 1. Have `docker` and `docker-compose` installed (You can check this by doing `docker -v` and `docker-compose -v`)
 1. Run `bootstrap.sh` with the name of your project and the `-d` or `--for-docker` flag like `./bootstrap.sh --name=my_awesome_project -d`
@@ -62,55 +62,55 @@ This template provides a handful of scripts to make your dev experience better!
   - `bin/web ls`
 - bin/rspec to run specs
   - `bin/rspec .`
-- bin/dev to run both rails and JS build processes at the same time in a single terminal tab.
+- bin/dev to run both Rails and JS build processes at the same time in a single terminal tab.
   - `bin/dev`
-- bin/debug to access `pry` in docker (only works if `web` service is not already running)
+- bin/debug to access `pry` in Docker (only works if `web` service is not already running)
   - `bin/debug`
 - bin/start & bin/stop to start and stop the containers and application
   - `bin/start`
   - `bin/stop`
 -
 
-You don't have to use these but they are designed to run the same when running with docker or not.
-To illustrate, `bin/rails console` will run the console in the docker container when running with docker and locally when not.
+You don't have to use these but they are designed to run the same when running with Docker or not.
+To illustrate, `bin/rails console` will run the console in the Docker container when running with Docker and locally when not.
 
 ## Gems
 
 - [ActiveAdmin](https://github.com/activeadmin/activeadmin) for easy administration
 - [Arctic Admin](https://github.com/cprodhomme/arctic_admin) for responsive active admin
-- [Annotate](https://github.com/ctran/annotate_models) for doc the schema in the classes
+- [Annotate](https://github.com/ctran/annotate_models) for documenting the schema in the classes
 - [Better Errors](https://github.com/charliesome/better_errors) for a better error page
-- [Brakeman](https://github.com/presidentbeef/brakeman) for static analysis security
+- [Brakeman](https://github.com/presidentbeef/brakeman) for security static analysis
 - [DelayedJob](https://github.com/collectiveidea/delayed_job) for background processing
-- [Devise](https://github.com/plataformatec/devise) for basic auth
-- [Devise Token Auth](https://github.com/lynndylanhurley/devise_token_auth) for api auth
+- [Devise](https://github.com/plataformatec/devise) for basic authentication
+- [Devise Token Auth](https://github.com/lynndylanhurley/devise_token_auth) for API authentication
 - [Dotenv](https://github.com/bkeepers/dotenv) for handling environment variables
 - [Draper](https://github.com/drapergem/draper) for decorators
 - [Factory Bot](https://github.com/thoughtbot/factory_bot) for testing data
 - [Faker](https://github.com/stympy/faker) for generating test data
 - [Flipper](https://github.com/jnunemaker/flipper) for feature flag support
-- [Jbuilder](https://github.com/rails/jbuilder) for json views
+- [Jbuilder](https://github.com/rails/jbuilder) for JSON views
 - [JS Bundling](https://github.com/rails/jsbundling-rails) for bundling JS assets.
-- [Knapsack](https://github.com/KnapsackPro/knapsack) for generating CI time report and splitting into nodes
+- [Knapsack](https://github.com/KnapsackPro/knapsack) for splitting tests evenly based on execution time
 - [Letter Opener](https://github.com/ryanb/letter_opener) for previewing a mail in the browser
 - [New Relic](https://github.com/newrelic/newrelic-ruby-agent) for monitoring and debugging
-- [Oj](https://github.com/ohler55/oj) for optimized json
+- [Oj](https://github.com/ohler55/oj) for optimized JSON
 - [Pagy](https://github.com/ddnexus/pagy) for pagination
-- [Parallel Tests](https://github.com/grosser/parallel_tests) for split CI in several cores
+- [Parallel Tests](https://github.com/grosser/parallel_tests) for running the tests in multiple cores
 - [Prosopite](https://github.com/charkost/prosopite) to detect N+1 queries
 - [Pry-Byebug](https://github.com/deivid-rodriguez/pry-byebug) for debugging
-- [Pry-Rails](https://github.com/pry/pry-rails) for enhancing the ruby shell
-- [Puma](https://github.com/puma/puma) for the server
+- [Pry-Rails](https://github.com/pry/pry-rails) for enhancing the Ruby shell
+- [Puma](https://github.com/puma/puma) for the web server
 - [Pundit](https://github.com/varvet/pundit) for authorization management
 - [Rack CORS](https://github.com/cyu/rack-cors) for handling CORS
-- [Rails Best Practices](https://github.com/flyerhzm/rails_best_practices) for rails linting
-- [Reek](https://github.com/troessner/reek) for ruby code smell linting
+- [Rails Best Practices](https://github.com/flyerhzm/rails_best_practices) for Rails linting
+- [Reek](https://github.com/troessner/reek) for Ruby code smell linting
 - [RSpec](https://github.com/rspec/rspec) for testing
 - [RSpec OpenAPI](https://github.com/exoego/rspec-openapi) for generating API documentation
-- [Rswag](https://github.com/rswag/rswag) for expose API documentation
-- [Rubocop](https://github.com/bbatsov/rubocop/) for ruby style linting
-- [Sendgrid](https://github.com/stephenb/sendgrid) for sending mails
-- [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) adds other testing matchers
+- [Rswag](https://github.com/rswag/rswag) for serving the API documentation
+- [Rubocop](https://github.com/bbatsov/rubocop/) for Ruby style linting
+- [Sendgrid](https://github.com/stephenb/sendgrid) for sending emails
+- [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) for other testing matchers
 - [Simplecov](https://github.com/colszowka/simplecov) for code coverage
 - [Strong Migrations](https://github.com/ankane/strong_migrations) for catching unsafe migrations in development
 - [Webmock](https://github.com/bblimke/webmock) for stubbing http requests
@@ -123,7 +123,7 @@ To illustrate, `bin/rails console` will run the console in the docker container 
 - Config your timezone accordingly in `application.rb`.
 - Config CI in parallel execution. See [docs](docs/ci.md).
 
-## Api Docs
+## API Docs
 
 - [RSpec API Doc Generator](https://github.com/exoego/rspec-openapi) you can generate the docs after writing requests specs.
 - [Rswag](https://github.com/rswag/rswag) you can expose the generated docs.
@@ -158,7 +158,7 @@ Code owners are automatically requested for review when someone opens a pull req
 
 ## Credits
 
-Rails Api Base is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our
+Rails API Base is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our
 [contributors](https://github.com/rootstrap/rails_api_base/contributors).
 
 [<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
