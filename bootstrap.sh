@@ -58,6 +58,9 @@ fi
 # generate a .env from the sample file
 cp .env.sample .env
 
+# == Copy githooks to .git/hooks ==
+./setup_githooks.sh
+
 # sed command implementation is different for GNU and macOS
 sed_i() {
   if [[ $OSTYPE == 'darwin'* ]]; then
