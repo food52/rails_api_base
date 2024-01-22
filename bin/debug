@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative 'helpers'
+
+if running_with_docker?
+  puts "Stopping current docker dev environment...\n"
+  system('docker-compose down')
+end
+
+if startup_with_docker?
+  puts "Starting up docker dev environment for debugging...\n"
+  system('docker-compose -f docker-compose.yml -f docker-compose.debug.yml up --build --detach')
+
+  puts "Attaching to dev environment in docker service #{web_service}...\n"
+
+  exec "docker attach $(docker-compose ps -q #{web_service})"
+else
+  # bin/rails s?
+  raise "This currently doesn't work for local dev"
+end
