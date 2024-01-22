@@ -3,9 +3,16 @@
 module Api
   module V1
     class UsersController < Api::V1::ApiController
+      include Pagy::Backend
+
       before_action :auth_user
+      after_action { pagy_headers_merge(@pagy) if @pagy }
 
       def show; end
+
+      def all
+        @pagy, @users = pagy(User.all)
+      end
 
       def update
         current_user.update!(user_params)
