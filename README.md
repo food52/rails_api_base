@@ -162,3 +162,104 @@ Rails API Base is maintained by [Rootstrap](http://www.rootstrap.com) with the h
 [contributors](https://github.com/rootstrap/rails_api_base/contributors).
 
 [<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
+
+
+
+
+
+## Production Environtment Variables
+
+### Rails
+
+- `RAILS_ENV`
+- `SERVER_HOST`
+- `PORT` (QQQ: RAILS_PORT??)
+- `SECRET_KEY_BASE` - see `./config/secrets.yml`
+- `DATABASE_URL` - see `./config/database.yml`
+- `PASSWORD_RESET_URL` - see `./config/initializers/devise_token_auth.rb`
+- `DISABLE_RAILS_STRICT_LOADING` - TODO: look into
+- `BUNDLE_GEMFILE` - TODO: necessary?
+
+### Redis
+
+- `REDIS_URL`
+
+### AWS
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_BUCKET_REGION`
+- `AWS_SECRET_ACCESS_KEY`
+- `S3_BUCKET_NAME`
+
+### Sendgrid
+
+- `SENDGRID_API_KEY`
+
+### New Relic
+
+See `./config/newrelic.yml`
+
+- `NEW_RELIC_API_KEY`
+- `NEW_RELIC_APP_NAME`
+
+
+
+
+
+
+
+## Get Auth Token
+
+1. Visit <http://localhost:3000/admin> and log in as the default user:
+  (created in `db/seeds.rb`)
+
+   ```text
+   User: <admin@example.com>
+   Password: password
+   ```
+
+2. Make a user for yourself: Users -> New User
+3. Make a post to <http://localhost:3000/api/v1/users/sign_in>
+
+   ```json
+   {
+       "user": {
+           "email": "FIRST.LAST@food52.com",
+           "password": "YOUR_PASSWORD"
+       }
+   }
+   ```
+
+4. From the response headers, grab the value in the `Authorization` field
+
+   ```text
+   Authorization: Bearer someReallyLongHash==
+   ```
+
+5. Add this header to all subsequent requests
+
+   ```http
+   GET http://localhost:3000/api/v1/users
+   Content-Type: application/json
+   Authorization: Bearer someReallyLongHash==
+   ```
+
+   ```text
+   => { "users": [{"id": 1, "email": "abc@example.com"},{"id": 2, "email": "def@example.com"}, ...] }
+   ```
+
+- `bin/web rspec` to run rspec
+
+
+```shell
+rails db:prepare # create, seed, & migrate
+rails db:seed # creates db seed data based off seeds.rb
+rails db:reset # drops and sets up db
+```
+
+TODO:
+
+- find/replace rails_api_base in app files
+- config lograge for logs
+-
+
